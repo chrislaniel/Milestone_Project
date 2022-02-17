@@ -1,3 +1,4 @@
+
 # List that will keep track of player markers
 def board():
     row1 = [1,2,3]
@@ -7,3 +8,9 @@ def board():
     print(row1)
     print(row2)
     print(row3)
+ 
+#draw board
+def print_board():
+    a = "\n ____|____|____"
+    b = "\n     |    |     "
+    print(b,a,b,a,b,b)
