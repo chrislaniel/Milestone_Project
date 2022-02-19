@@ -21,16 +21,19 @@ position = ""
 
 def player_input():
     #X or O is playing
+    global choice
+    global position 
+    global board
     while True:
         x_o = input("Are you playing X or O? :")
         XO = x_o.upper() 
         if XO in ["X","O"]:
-            global choice
             choice = XO
             break
-        else :
+        else:
             print("Please enter X or O")
             continue
+        
             
     #Position to put the X or O
     while True:
@@ -41,15 +44,17 @@ def player_input():
             print("Please enter a valid position (1-9)")
             continue
             
-        if Num_Position in range(0,10):
-            global position 
+        if Num_Position in range(0,10): 
             position = Num_Position
-            break
-        else :
+        else:
             print("Please enter a valid position (1-9)")
             continue
-
-
+        
+        if board[Num_Position - 1] == " ":
+            break
+        else:
+            print("There is already a marker there, please enter another position:")
+            
 
 #updating the board
 def update_board():
@@ -91,13 +96,11 @@ def winner():
 
 #check if we have a tie game
 def tie_check():
-    global board
     if (" ") in board:
         #will give back function to ask new player input
         pass
     else:
         print("We have a tie game")
-
 
 
 
