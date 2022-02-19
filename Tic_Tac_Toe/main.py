@@ -89,6 +89,16 @@ def winner():
         pass
 
 
+#check if we have a tie game
+def tie_check():
+    global board
+    if (" ") in board:
+        #will give back function to ask new player input
+        pass
+    else:
+        print("We have a tie game")
+
+
 
 
   
