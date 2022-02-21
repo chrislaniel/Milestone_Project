@@ -23,15 +23,15 @@ def player_input():
     global choice
     global position 
     global board
-    while True:
-        x_o = input("Are you playing X or O? :")
-        XO = x_o.upper() 
-        if XO in ["X","O"]:
-            choice = XO
-            break
-        else:
-            print("Please enter X or O")
-            continue
+    
+    num_x = board.count("X")
+    num_o = board.count("O")
+    total = num_x - num_o
+        
+    if total == 0:
+        choice = "X"
+    else:
+        choice = "O"
         
             
     #Position to put the X or O
