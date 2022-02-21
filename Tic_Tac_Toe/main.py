@@ -1,4 +1,3 @@
-
 # List that will keep track of player markers
 board = [" "," "," "," "," "," "," "," "," "]
  
@@ -60,10 +59,10 @@ def player_input():
 def update_board():
     board[position-1] = choice
 
-
-
+check = " "
 #checking if there is a winner
 def winner():
+    global check
     #possible winner options
     opt1 = board[0] == board[1] == board[2]
     opt2 = board[3] == board[4] == board[5]
@@ -76,33 +75,62 @@ def winner():
  
     if opt1 == True and board[0] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt2 == True and board[3] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt3 == True and board[6] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt4 == True and board[0] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt5 == True and board[1] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt6 == True and board[2] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt7 == True and board[0] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     elif opt8 == True and board[2] in ["X","O"]:
         print("Winner!")
+        check = "finish"
     else:
         pass
 
 
+tie = " "
 #check if we have a tie game
 def tie_check():
+    global tie
+    
     if (" ") in board:
         #will give back function to ask new player input
         pass
     else:
         print("We have a tie game")
-
-
+        tie = "finish"
+        
+#automatic game flow
+while True:
+    global check
+    global tie
+    if check == "finish":
+        print("Game's over, we have winner!")
+        break
+    elif tie == "finish":
+        print("We have a tie game")
+        break
+    else:
+        print_board()
+        player_input()
+        update_board()
+        winner()
+        tie_check()
+        continue
+    
 
   
     
